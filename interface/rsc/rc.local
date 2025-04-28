@@ -1,0 +1,14 @@
+#! /bin/bash
+
+# todo: check for internet connection
+# todo: git based updates
+# todo: exception handling
+
+exec 2> /home/pi/Desktop/sm_rpi_sensors/RPi.log  # send stderr to RPi.log
+exec 1>&2			  # send stdout to RPi.log
+
+sudo chmod 766 /home/pi/Desktop/sm_rpi_sensors/interface/rsc/run.sh
+sudo chmod 766 /home/pi/Desktop/sm_rpi_sensors/interface/rsc/compile.sh
+nohup python3 /home/pi/Desktop/sm_rpi_sensors/interface/src/io.py &
+
+exit 0
